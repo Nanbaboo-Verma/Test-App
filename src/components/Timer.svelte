@@ -20,7 +20,7 @@
     previousQuestionIndex = $currentQuestionIndex;
   }
 
-  $: newtimeLeft = `${String(Math.floor(timeLeft / 60)).padStart(2, "0")}:${String(timeLeft % 60).padStart(2, "0")}`;
+  $: updateTimeLeft = `${String(Math.floor(timeLeft / 60)).padStart(2, "0")}:${String(timeLeft % 60).padStart(2, "0")}`;
 
   // Start the timer
   onMount(() => {
@@ -42,7 +42,6 @@
 </script>
 
 
-
 <div class="start-timer">
   <svg class="progress-ring" width="70" height="70">
     <circle
@@ -60,7 +59,7 @@
       stroke-dashoffset="{188.4 - (progress / 100) * 188.4}"
     />
   </svg>
-  <span class="timer-text">{newtimeLeft}</span>
+  <span class="timer-text">{updateTimeLeft}</span>
 </div>
 
 <style>

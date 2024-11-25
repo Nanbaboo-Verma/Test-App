@@ -43,15 +43,15 @@
         {/each}
       </div>
 
-      <div class="border-top p-3">
+      <div class="border-top p-3 pt-0">
         <div class="row">
-          <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mt-3">
             <div><b>Status:</b> {#if $attemptedQuestions.includes(currentIndex)}<span class="text-success">Attempted</span>{:else}<span class="text-danger">Unattempted</span>{/if}</div>
           </div>
-          <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mt-3">
             <p class="mb-0"><b>Time Spent:</b> {timeFormater($timeSpent[currentIndex] || 0)} </p>
           </div>
-          <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mt-3">
             <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Show Explanation
             </button>

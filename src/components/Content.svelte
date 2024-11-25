@@ -59,3 +59,8 @@
   </div>
 </div>
 
+<style>
+  .form-check-input,.form-check-label{
+    cursor: pointer;
+  }
+</style>

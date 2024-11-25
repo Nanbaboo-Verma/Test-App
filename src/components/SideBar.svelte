@@ -1,10 +1,11 @@
 <script>
   import { currentQuestionIndex } from "../store/store.js";
-  export let question;
-  export let currentIndex;
-  
   import AttemptedQuestions from "./AttemptedQuestions.svelte";
   import UnattemptedQuestions from "./UnattemptedQuestions.svelte";
+
+  export let question;
+  export let currentIndex;
+
 
   let changeTab='all';
   let isUserAnswer = false
@@ -13,7 +14,7 @@
   const handleNavigateQuestion= (index) => {
     currentQuestionIndex.update(()=>index);
   };
-
+  
 </script>
 
 <div class="offcanvas sibdeBar offcanvas-start border-end " tabindex="-1" id="offcanvasExample" aria-labelledby="testAppSideBar">
@@ -38,15 +39,14 @@
       </li>
     {/each}
   </ul>
-  {:else if changeTab==="attempted"}
-  <AttemptedQuestions {isUserAnswer} {isCorrectAnswer} className="attempted-sidebar-question"/>
-  {:else if changeTab==="unattempted"}
-  <UnattemptedQuestions className="unattempted-sidebar-question"/>
+    {:else if changeTab==="attempted"}
+       <AttemptedQuestions {isUserAnswer} {isCorrectAnswer} className="attempted-sidebar-question"/>
+    {:else if changeTab==="unattempted"}
+     <UnattemptedQuestions className="unattempted-sidebar-question"/>
   {/if}
-    
   </div>
-</div>  
-  
+</div>
+
 <style>
     .offcanvas-start{
         width: 350px;
@@ -62,13 +62,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
     }
+    
     .active-question {
     background-color: #d0ccff !important;
     color: #431ffd !important;
    }
+
     .nav-item:hover{
       cursor: pointer;
       color: #7991ff;
       background-color: #ebecf1;
     }
 </style> 
+
+

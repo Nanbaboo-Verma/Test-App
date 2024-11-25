@@ -15,8 +15,7 @@
 <ul class={`attempted-question-list nav mt-4 ${className}`}>
   {#if attemptedQuestionsList.length > 0}
   {#each attemptedQuestionsList as index}
-    <li class="nav-item p-2 text-nowrap" >
-      
+    <li class="nav-item p-2 text-nowrap">
       <div class="d-flex gap-2">
         <p class="mb-0">{index+1})</p>
         <p class="attempted-question-title mb-0">{allQuestions[index].question}</p>
@@ -33,10 +32,10 @@
 </ul>
 
 <style>
-.attempted-sidebar-question .attempted-question-title{
+  .attempted-sidebar-question .attempted-question-title{
     width: 260px;
     overflow: hidden;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }
 </style>

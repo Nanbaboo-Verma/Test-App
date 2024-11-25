@@ -1,5 +1,5 @@
 <script>
-  import { unattemptedQuestions, questions, userAnswers } from "../store/store.js";
+  import { unattemptedQuestions, questions } from "../store/store.js";
   export let className='';
   
   $: unattemptedQuestionsList = $unattemptedQuestions;
@@ -26,25 +26,5 @@
     overflow: hidden;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }
 </style>
-
-
-<!-- {#if unattemptedQuestionsList.length > 0}
-  {#each unattemptedQuestionsList as index}
-    <div class="question">
-      <p>{index+1}<strong>{allQuestions[index].question}</strong></p>
-      <p>
-        Your Answer: 
-        {#if $userAnswers[index]}
-          {$userAnswers[index]}
-        {:else}
-          Not answered
-        {/if}
-      </p>
-      <p>Status: Unattempted</p>
-    </div>
-  {/each}
-{:else}
-  <p>No unattempted questions.</p>
-{/if} -->
