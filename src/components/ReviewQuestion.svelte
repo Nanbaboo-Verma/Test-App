@@ -1,6 +1,7 @@
 
 <script>
   import { questions, userAnswers,attemptedQuestions ,currentQuestionIndex,timeSpent,currentPage} from "../store/store.js";
+  import NextPreviousBtn from "./NextPreviousBtn.svelte";
   import { timeFormater } from "./TimeFormater.js";
 
   $: questionList = $questions;
@@ -52,7 +53,7 @@
             <p class="mb-0"><b>Time Spent:</b> {timeFormater($timeSpent[currentIndex] || 0)} </p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mt-3">
-            <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Show Explanation
             </button>
           </div>
@@ -72,8 +73,12 @@
       </div>
     {/each}
 
-    <div class="d-flex justify-content-end gap-3">
-      <button class="btn btn-secondary" on:click={moveToResultPage}>Show Result</button>
-       <button class="btn btn-secondary" on:click={startNewTest}>Start Test</button>
+    <div class="d-flex justify-content-between">
+      <NextPreviousBtn />
+      <div>
+        <button class="btn btn-outline-primary" on:click={moveToResultPage}>Show Result</button>
+        <button class="btn btn-outline-primary" on:click={startNewTest}>Start Test</button>
+      </div>
+
     </div>
 </div> 

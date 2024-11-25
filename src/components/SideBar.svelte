@@ -33,16 +33,20 @@
   {#if changeTab==='all'}
   <ul class="sidebar-question-wrapper nav flex-column mt-4">
     {#each question as question,index}
-      <li class={`nav-item mt-1 mb-1 d-flex rounded gap-2 text-nowrap ${currentIndex===index?'active-question':''}`}   on:click={()=>handleNavigateQuestion(index)} data-bs-toggle="offcanvas">
+      <li class={`nav-item mt-1 mb-1 d-flex rounded gap-2 text-nowrap ${currentIndex===index?'active-question':''}`}
+        on:click={()=>handleNavigateQuestion(index)} 
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+      >
         <p class="mb-0">{index+1})</p>
         <p class="sidebar-question-title mb-0"> {question.question}</p>
       </li>
     {/each}
   </ul>
     {:else if changeTab==="attempted"}
-       <AttemptedQuestions {isUserAnswer} {isCorrectAnswer} className="attempted-sidebar-question"/>
+       <AttemptedQuestions on:click={(event)=>handleNavigateQuestion(event.detail)} {isUserAnswer} {isCorrectAnswer} className="attempted-sidebar-question"/>
     {:else if changeTab==="unattempted"}
-     <UnattemptedQuestions className="unattempted-sidebar-question"/>
+     <UnattemptedQuestions on:click={(event)=>handleNavigateQuestion(event.detail)} className="unattempted-sidebar-question"/>
   {/if}
   </div>
 </div>
@@ -52,7 +56,7 @@
         width: 350px;
     }
   
-    .sidebar-question-wrapper .nav-item{
+    :global(.sidebar-question-wrapper .nav-item){
     padding: 9px 12px !important;
     font-size: 16px !important;
    }
@@ -63,12 +67,11 @@
     text-overflow: ellipsis;
     }
     
-    .active-question {
+    :global(.active-question) {
     background-color: #d0ccff !important;
     color: #431ffd !important;
    }
-
-    .nav-item:hover{
+   :global(.nav-item:hover){
       cursor: pointer;
       color: #7991ff;
       background-color: #ebecf1;
